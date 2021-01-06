@@ -41,19 +41,38 @@ $os = [
     ]
 ];
 
-function looparray($data){
+// Saving in output 1
+// $output = [];
+
+// function looparray($data, &$new){ //Pointing a refrence to $ouput array
+//         foreach ($data as $key => $value) {
+//                 if(is_array($value)){
+//                     looparray($value, $new);
+//                     continue; //skip the current key and move to the next one
+//                 }
+//                 //else
+//                 $new[] = $value;
+//     }
+// }
+
+// looparray($os, $output);
+// echo var_dump($output);
+
+function looparray($data){ 
+        static $output = [];
         foreach ($data as $key => $value) {
                 if(is_array($value)){
                     looparray($value);
                     continue; //skip the current key and move to the next one
                 }
                 //else
-                echo $value;
-                echo "<br>";
-    }
+                $output[] = $value;
+            }
+        return $output;
 }
 
-looparray($os);
+$output = looparray($os);
+echo var_dump($output);
 return;
 
 //Other Practice

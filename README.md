@@ -44,19 +44,22 @@ $os = [
     ]
 ];
 
-function looparray($data){
+//Saving in output
+$output = [];
+
+function looparray($data, &$output){
         foreach ($data as $key => $value) {
                 if(is_array($value)){
-                    looparray($value);
+                    looparray($value, $output);
                     continue; //skip the current key and move to the next one
                 }
                 //else
-                echo $value;
-                echo "<br>";
+                $output[] = $value;
     }
 }
 
-looparray($os);
+looparray($os, $output);
+echo var_dump($output);
 return;
 
 //Other Practice
