@@ -1,7 +1,4 @@
-# Array-Knowledge
-
-```php
-    <?php
+<?php
 //Array Practice
 
 //Array Value
@@ -118,4 +115,3 @@ return;
     echo $test->index1();
     echo $test->index2();
     echo $test->index3();
-```
